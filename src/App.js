@@ -1,25 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import Card from './Card';
+import Sdata from './Sdata';
+import Heading from './Heading';
+import './index.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+  return(
+  <>
+    <Heading />
+    <div className="container">
+      <div className="row">
+
+        {Sdata.map((curval) => {
+          return (
+            <Card
+              key={curval.key}
+              seriestitle={curval.seriestitle}
+              imgsrc={curval.imgsrc}
+              watchlink={curval.watchlink}
+            />
+          );
+        })}
+
+      </div>
     </div>
+  </>
   );
+
 }
 
 export default App;
